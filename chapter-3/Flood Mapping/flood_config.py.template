@@ -36,10 +36,16 @@ gpu_ids=[0]
 dataset_type = 'GeospatialDataset'
 data_root = data_path + 'training-data/'
 
+###----- Changed depending on data source
+#--   Needs to be changed to use GeoDN data
 img_norm_cfg = dict(
     means=[0.21531178, 0.20978154, 0.18528642, 0.48253757], stds=[0.10392396, 0.10210076, 0.11696766, 0.19680527])
-
 bands = [1,2,3,8]
+
+#img_norm_cfg = dict(
+#    means=[0.09840321, 0.12590889, 0.11499668,  0.31537666], stds=[0.0617847 , 0.05957831, #0.06571424, 0.09343068])
+## bands = [0,1,2,3]
+#bands = [2,1,0,3]
 
 tile_size = 224
 orig_nsize = 512

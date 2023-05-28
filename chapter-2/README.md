@@ -11,3 +11,5 @@
     - Click "Clone"
 - Navigate to "summer-school-2023/chapter-2"
 - Open "hls_applications_example.ipynb"
+
+*Note: Please provide your github handle to the lecturers or drop it in slack before trying the steps above.*

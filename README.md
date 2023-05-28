@@ -1,7 +1,27 @@
-# IEEE GRSS HDCRS Summer School 2023
+# IEEE GRSS HDCRS Summer School 2023 (Day 2)
+
 ## Data Science at Scale: Harmonized Landsat Sentinel-2 (HLS) Case Study
 
-# Reading Materials
+[Overview slides](DataScience.SummerSchool.Manil.pdf) 
+
+`Chapter 1: Data Production/processing`
+- Large Scale Data Harmonization
+
+`Chapter 2: Data Analysis`
+- Tools NASA FIRMS (HLS applications and dynamic tiling capabilities)
+- [Interactive HLS notebook for analysis and visualization](chapter-2/hls_applications_example.ipynb)
+
+`Chapter 3: Theory & Application of Geospatial Foundation Model`
+- [Overview of Geo-spatial Foundation Model](chapter-3/HDCRS%20Summer%20School%20GFM%20Intro.pptx)
+- Fine-tune HLS foundation model for specific use-cases: 
+    - [Flood](chapter-3/Burn%20Scars/GFM%20Burn%20Scars.ipynb) 
+    - [Burn Scars](chapter-3/Flood%20Mapping/GFM%20Flood%20Mapping.ipynb) 
+
+`Chapter 4: Interactive Exploration of Fine-tuned Model`
+ 
+
+
+## Reading Materials
 
 Our lecture will focus on utilizing cloud-based resources to prepare analysis and train and validate machine learning models. Here are some reading materials to get started:
 

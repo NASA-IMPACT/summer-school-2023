@@ -49,7 +49,7 @@ def create_project_folders(project_name, path_to_shared_volume="/opt/app-root/sr
         os.mkdir(path_to_shared_volume + project_name) 
         print("Created overall project folder at: " + path_to_shared_volume + project_name)
         
-        folders = ['configs', 'fine-tune-checkpoints', 'gfm-models', 'inference', 'training-data']
+        folders = ['configs', 'fine-tune-checkpoints', 'gfm-models', 'inference', 'training-data', 'inference/pred']
         
         for f in folders:
             os.mkdir(path_to_shared_volume + project_name + '/' + f) 
@@ -63,14 +63,14 @@ def create_s3_client(access_key, access_secret, endpoint_url="https://s3.us-sout
     s3 = boto3.client(
         "s3",
         endpoint_url = endpoint_url,
-        aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID"),
-        aws_secret_access_key = os.getenv("AWS_ACCESS_KEY_SECRET"),
+        aws_access_key_id = access_key,
+        aws_secret_access_key = access_secret,
         config = Config(signature_version="s3v4"),
         region_name = "us-south",
     )        
     return s3
         
-def download_s3_dir(prefix, local, bucket, client, number_of_files=None, random_state=17):
+def download_s3_dir(prefix, local, bucket, client, number_of_files=None, random_state=17, key_dir_levels=1):
     """
     params:
     - prefix: pattern to match in s3
@@ -117,7 +117,7 @@ def download_s3_dir(prefix, local, bucket, client, number_of_files=None, random_
         selected_keys = keys
             
     for k in trange(len(selected_keys)):
-        dest_pathname = os.path.join(local, keys[k])
+        dest_pathname = os.path.join(local, "/".join(keys[k].split('/')[-1*(key_dir_levels+1):]))
         if not os.path.exists(os.path.dirname(dest_pathname)):
             os.makedirs(os.path.dirname(dest_pathname))
         client.download_file(bucket, keys[k], dest_pathname)
